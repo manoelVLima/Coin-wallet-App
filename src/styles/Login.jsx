@@ -14,7 +14,7 @@ export const StyledPaper = styled(Paper)(({theme}) => ({
   [theme.breakpoints.down('sm')]: {
     gap: 32,
     height: '76vh',
-    margin: '12vh auto'
+    margin: '9vh auto'
   }
 }))
 export const StyledImg = styled('img')({
