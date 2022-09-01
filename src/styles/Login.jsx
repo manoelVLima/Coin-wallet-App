@@ -2,7 +2,7 @@ import { Paper, styled } from "@mui/material";
 
 export const StyledPaper = styled(Paper)(({theme}) => ({
   padding: 20,
-  height: '87vh',
+  height: '93vh',
   width: 280,
   background: 'white',
   margin: '20px auto',
@@ -10,9 +10,9 @@ export const StyledPaper = styled(Paper)(({theme}) => ({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent:'center',
-  gap: 20,
+  gap: 16,
   [theme.breakpoints.down('sm')]: {
-    gap: '32px'
+    gap: '32'
   }
 }))
 export const StyledImg = styled('img')({
