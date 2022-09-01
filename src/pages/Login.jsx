@@ -2,11 +2,13 @@
 import { Avatar, Button, Grid, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { StyledPaper } from '../styles/Login';
+import logo from './Coin-wallet.jpg'
 
 function Login() {
   return (
     <Grid bgcolor='#008F8C'>
       <StyledPaper elevation={10} >
+      <img  src={logo} alt="Coin wallet logo"/>
         <Grid align='center'>
           <Avatar sx={{background: '#023535'}}/>
           <Typography marginTop={2} variant='h5'>
@@ -18,7 +20,6 @@ function Login() {
         <Button fullWidth variant="contained" color="success">
           Success
         </Button>
-
       </StyledPaper>
     </Grid>
   )

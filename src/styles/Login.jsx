@@ -2,7 +2,7 @@ import { Paper, styled } from "@mui/material";
 
 export const StyledPaper = styled(Paper)({
   padding: 20,
-  height: '75vh',
+  height: '95vh',
   width: 280,
   background: '#ecffee',
   margin: '20px auto',
