@@ -4,6 +4,11 @@ export const StyledPaper = styled(Paper)({
   padding: 20,
   height: '75vh',
   width: 280,
-  background: '#D8FFDB',
+  background: '#ecffee',
   margin: '20px auto',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent:'center',
+  gap: 20,
 })
