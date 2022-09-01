@@ -18,6 +18,9 @@ export const StyledPaper = styled(Paper)(({theme}) => ({
     width: '90vw'
   }
 }))
-export const StyledImg = styled('img')({
-
-})
+export const StyledImg = styled('img')(({theme}) => ({
+  [theme.breakpoints.down('sm')]: {
+    marginTop: 60,
+    display: 'none'
+  }
+}))
