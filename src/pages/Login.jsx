@@ -6,13 +6,16 @@ import { useDispatch } from 'react-redux';
 import { StyledImg, StyledPaper } from '../styles/Login';
 import logo from './Coin-wallet.jpg'
 import { getLogin } from '../redux/actions/actions';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+  
   const [user , setUser] = useState({
     email: '',
     password: '',
   });
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setUser({...user, [event.target.name]: event.target.value})
@@ -22,6 +25,7 @@ function Login() {
     dispatch(getLogin(user))
 
     setUser({})
+    navigate('/cateira')
   }
 
   return (

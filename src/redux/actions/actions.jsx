@@ -1,6 +1,6 @@
 import actionsTypes from "./actionsType"
 
-export const getLogin = (user) => ({
+export const getLogin = ({email, password}) => ({
   type: actionsTypes.LOGIN,
-  user,
+  email,
 })
