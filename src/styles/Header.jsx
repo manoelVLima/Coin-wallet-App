@@ -6,4 +6,5 @@ export const StyledToolBar = styled(Toolbar)({
   justifyContent: 'space-around',
   color:'white',
   flexWrap: 'wrap',
+  background: '#015958',
 })
