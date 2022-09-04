@@ -13,7 +13,7 @@ export const StyledPaper = styled(Paper)(({theme}) => ({
   gap: 16,
   [theme.breakpoints.down('sm')]: {
     gap: 20,
-    height: '90vh',
+    height: '76vh',
     margin: '22px auto',
     width: '90vw'
   }
