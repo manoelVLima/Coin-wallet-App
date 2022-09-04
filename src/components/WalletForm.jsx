@@ -1,12 +1,13 @@
-import { Box, Button, Container, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material'
+import { Button, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material'
 import React from 'react'
+import { StyledContainer } from '../styles/Wallet'
 
 function WalletForm() {
   return ( 
-  <Container  sx={{background:'white', display:'flex', flexDirection: { xs: 'column' , sm:'row'}, padding:2, margin:'0 auto'}}>
-    <TextField type="number" label="Budget" sx={{flex: 1}} color="success"/>
-    <TextField type="text" label="Description" sx={{flex: 1}} color="success"/>
-    <FormControl sx={{flex: 1}} >
+  <StyledContainer>
+    <TextField fullWidth type="number" label="Budget" sx={{flex: 1, marginTop:1}} color="success"/>
+    <TextField fullWidth type="text" label="Description" sx={{flex: 1,marginTop:1}} color="success"/>
+    <FormControl fullWidth sx={{flex: 1, marginTop:1}} >
       <InputLabel id="currency">Currency</InputLabel>
       <Select
         labelId="currency"
@@ -20,7 +21,7 @@ function WalletForm() {
         <MenuItem value={30}>Thirty</MenuItem>
       </Select>
     </FormControl>
-    <FormControl sx={{flex: 1}} >
+    <FormControl fullWidth sx={{flex: 1, marginTop:1}} >
       <InputLabel id="currency">Tag</InputLabel>
       <Select
         labelId="tag"
@@ -33,7 +34,7 @@ function WalletForm() {
         <MenuItem value={30}>Thirty</MenuItem>
       </Select>
     </FormControl>
-    <FormControl sx={{flex: 1}} >
+    <FormControl fullWidth sx={{flex: 1, marginTop:1}} >
       <InputLabel id="method">Payment</InputLabel>
       <Select
         labelId="method"
@@ -46,10 +47,10 @@ function WalletForm() {
         <MenuItem value={30}>Thirty</MenuItem>
       </Select>
     </FormControl>
-    <Button sx={{flex:1, marginLeft:2}} variant="contained" color="success">
+    <Button sx={{flex:1, marginLeft:2, marginTop:1.5}} variant="contained" color="success">
       New Expense
     </Button>
-  </Container>
+  </StyledContainer>
   )
 }
 
