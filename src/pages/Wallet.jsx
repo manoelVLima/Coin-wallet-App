@@ -6,10 +6,10 @@ import WalletForm from '../components/WalletForm';
 
 function Wallet() {
   return (
-    <Stack spacing={0}>
+    <Stack bgcolor='white' spacing={0}>
       <Header />
       <WalletForm />
-      <Table />
+      <Table/>
     </Stack>
   )
 }

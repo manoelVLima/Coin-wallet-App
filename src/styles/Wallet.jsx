@@ -5,6 +5,7 @@ export const StyledContainer = styled(Container)(({theme}) => ({
   flexDirection:'row',
   alignItems:'center',
   justifyContent: 'center',
+  gap: 10,
   padding:2.5, 
   margin:'10px auto',
 
