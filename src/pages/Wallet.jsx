@@ -1,6 +1,7 @@
 import { Stack } from '@mui/material';
 import React from 'react'
 import Header from '../components/Header';
+import Table from '../components/Table';
 import WalletForm from '../components/WalletForm';
 
 function Wallet() {
@@ -8,6 +9,7 @@ function Wallet() {
     <Stack spacing={0}>
       <Header />
       <WalletForm />
+      <Table />
     </Stack>
   )
 }
