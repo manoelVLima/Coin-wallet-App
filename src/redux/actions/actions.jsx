@@ -32,3 +32,19 @@ export const deleteExpense = (id) => ({
   type: actionsTypes.DELETE_EXPENSE,
   id,
 })
+
+export const enableEdit = (id) => ({
+  type: actionsTypes.ENABLE_EDIT,
+  id,
+})
+
+export const editExpense = (newExpenseData) => async (dispatch) =>{ 
+  const data = await fetchAPI();
+  dispatch({
+    type: actionsTypes.EDIT_EXPENSE,
+    expense: {
+      ...newExpenseData,
+      exchangeRates: data,
+    }
+  })
+}

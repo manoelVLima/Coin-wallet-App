@@ -7,6 +7,7 @@ const INITIAL_STATE = {
   idToEdit: 0,
 };
 const walletReducer = (state=INITIAL_STATE, action) => {
+  console.log(action);
   switch(action.type) {
     case actionsTypes.GET_COINS: return {
       ...state, currencies: action.payload,
@@ -22,6 +23,15 @@ const walletReducer = (state=INITIAL_STATE, action) => {
       ...state,
       expenses:
         state.expenses.filter((expense) => expense.id !== action.id)
+    }
+    case actionsTypes.ENABLE_EDIT: return {
+      ...state,
+      idToEdit: action.id,
+    }
+    case actionsTypes.EDIT_EXPENSE: return {
+      ...state,
+      expenses:
+      [...state.expenses.map((expense) => expense.id === state.idToEdit ? action.expense : expense )]
     }
     default: return state;
   }

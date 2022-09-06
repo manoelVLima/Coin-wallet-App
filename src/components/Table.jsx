@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { deleteExpense } from '../redux/actions/actions';
-import { Modal, Typography } from '@mui/material';
-import WalletForm from './WalletForm';
+import { Modal} from '@mui/material';
 import EditExpense from './EditExpense';
+import { enableEdit } from '../redux/actions/actions';
 
 export default function DataGridDemo() {
   const {wallet: {expenses}} = useSelector((state) => state);
@@ -62,7 +62,8 @@ export default function DataGridDemo() {
         return (
           <Box>
             <DeleteIcon onClick={() => handleDelete(id)} sx={{marginRight:1, color: 'red', cursor:'pointer'}} />
-            <EditIcon onClick={() => setOpen(true)} sx={{color:'orange', cursor:'pointer'}} />
+            <EditIcon onClick={() => handleEdit(id)} 
+              sx={{color:'orange', cursor:'pointer'}} />
           </Box>
         )
       }
@@ -70,6 +71,10 @@ export default function DataGridDemo() {
   ];
   const handleDelete = ({id}) => {
     dispatch(deleteExpense(id));
+  }
+  const handleEdit= ({id}) => {
+    setOpen(true);
+    dispatch(enableEdit(id))
   }
   const renderExpenses = expenses.map((expense) => ({
     ...expense,
@@ -96,14 +101,14 @@ export default function DataGridDemo() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={{margin: {
+        <Box borderRadius={2} sx={{margin: {
           xs: '20vh auto',
-          sm: '40vh auto',
+          sm: '17vh auto',
         }, background: 'white', width: {
           xs: '80vw',
-          sm: '50vw',
-        }}}>
-          <EditExpense />
+          sm: '83vw',
+        },height: {sm: '195px'}}}>
+          <EditExpense set={setOpen} />
         </Box>
       </Modal>
     </Box>

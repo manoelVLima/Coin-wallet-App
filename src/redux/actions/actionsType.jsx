@@ -3,5 +3,7 @@ const actionsTypes = {
   GET_COINS: 'GET_COINS',
   SAVE_EXPENSE:'SAVE_EXPENSE',
   DELETE_EXPENSE:'DELETE_EXPENSE',
+  ENABLE_EDIT: 'ENABLE_EDIT',
+  EDIT_EXPENSE: 'EDIT_EXPENSE',
 }
 export default actionsTypes;

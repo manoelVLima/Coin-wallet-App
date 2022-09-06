@@ -2,11 +2,12 @@ import { Button, Container, FormControl, InputLabel, MenuItem, Select, TextField
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { StyledContainer } from '../styles/Wallet';
-import { getCoins, saveExpense } from '../redux/actions/actions';
+import { getCoins,editExpense } from '../redux/actions/actions';
 
-function EditExpense() {
+function EditExpense({set}) {
+  console.log(set);
   const dispatch = useDispatch();
-  const { wallet: { expenses } } = useSelector((state)=> state);
+  const { wallet: { idToEdit } } = useSelector((state)=> state);
   const [expense, setExpense] = useState({
     Budget:'',
     Description:'',
@@ -28,10 +29,11 @@ function EditExpense() {
   const handleClick = (event) => {
     event.preventDefault();
 
-    dispatch(saveExpense({
-      id: expenses.length,
+    dispatch(editExpense({
+      id: idToEdit,
       ...expense
     }));
+    set(false)
 
     setExpense({
       Budget:'',
