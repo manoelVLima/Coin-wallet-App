@@ -99,7 +99,10 @@ export default function DataGridDemo() {
         <Box sx={{margin: {
           xs: '20vh auto',
           sm: '40vh auto',
-        }, background: 'white', width: '50vw'}}>
+        }, background: 'white', width: {
+          xs: '80vw',
+          sm: '50vw',
+        }}}>
           <EditExpense />
         </Box>
       </Modal>
