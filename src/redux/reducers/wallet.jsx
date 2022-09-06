@@ -7,7 +7,6 @@ const INITIAL_STATE = {
   idToEdit: 0,
 };
 const walletReducer = (state=INITIAL_STATE, action) => {
-  console.log(action);
   switch(action.type) {
     case actionsTypes.GET_COINS: return {
       ...state, currencies: action.payload,

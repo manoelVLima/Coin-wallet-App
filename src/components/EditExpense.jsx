@@ -5,9 +5,12 @@ import { StyledContainer } from '../styles/Wallet';
 import { getCoins,editExpense } from '../redux/actions/actions';
 
 function EditExpense({set}) {
-  console.log(set);
   const dispatch = useDispatch();
-  const { wallet: { idToEdit } } = useSelector((state)=> state);
+  const { wallet: { expenses, idToEdit } } = useSelector((state)=> state);
+  console.log(expenses);
+  console.log(idToEdit);
+  const EditForm = expenses.find((expense) => expense.id === idToEdit)
+  console.log(EditForm);
   const [expense, setExpense] = useState({
     Budget:'',
     Description:'',
@@ -21,6 +24,8 @@ function EditExpense({set}) {
 
   useEffect(() => {
     dispatch(getCoins())
+    setExpense(EditForm);
+    
   }, [dispatch])
 
   const handleChange = ({target}) => {
