@@ -97,7 +97,7 @@ export default function DataGridDemo() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={{margin: {
-          xs: '50vh auto',
+          xs: '20vh auto',
           sm: '40vh auto',
         }, background: 'white', width: '50vw'}}>
           <EditExpense />
