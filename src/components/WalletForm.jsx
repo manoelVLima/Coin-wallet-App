@@ -48,8 +48,8 @@ function WalletForm() {
     </Typography>
     <Typography marginTop={3} marginBottom={3} variant="h5">Add your expenses</Typography>
     <StyledContainer>
-      <TextField onChange={handleChange} value={expense.Budget ? expense.Budget: ''} fullWidth type="number" name="Budget" label="Budget" sx={{flex: 1, marginTop:1}} color="success"/>
-      <TextField onChange={handleChange} value={expense.Description ? expense.Description: ''} fullWidth type="text" name="Description" label="Description" sx={{flex: 1,marginTop:1}} color="success"/>
+      <TextField autoComplete='off' onChange={handleChange} value={expense.Budget ? expense.Budget: ''} fullWidth type="number" name="Budget" label="Budget" sx={{flex: 1, marginTop:1}} color="success"/>
+      <TextField autoComplete='off' onChange={handleChange} value={expense.Description ? expense.Description: ''} fullWidth type="text" name="Description" label="Description" sx={{flex: 1,marginTop:1}} color="success"/>
       <FormControl fullWidth sx={{flex: 1, marginTop:1}} >
         <InputLabel id="currency">Currency</InputLabel>
         <Select

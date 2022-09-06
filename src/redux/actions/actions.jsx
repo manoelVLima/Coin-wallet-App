@@ -19,7 +19,6 @@ export const getCoins = () => async (dispatch) => {
 
 export const saveExpense = (expenseData) => async (dispatch) =>{ 
   const data = await fetchAPI();
-  console.log(expenseData);
   dispatch({
     type: actionsTypes.SAVE_EXPENSE,
     expense: {
@@ -28,3 +27,8 @@ export const saveExpense = (expenseData) => async (dispatch) =>{
     }
   })
 }
+
+export const deleteExpense = (id) => ({
+  type: actionsTypes.DELETE_EXPENSE,
+  id,
+})

@@ -18,6 +18,11 @@ const walletReducer = (state=INITIAL_STATE, action) => {
         action.expense
       ]
     }
+    case actionsTypes.DELETE_EXPENSE: return {
+      ...state,
+      expenses:
+        state.expenses.filter((expense) => expense.id !== action.id)
+    }
     default: return state;
   }
 }
