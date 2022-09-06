@@ -13,7 +13,7 @@ const theme = createTheme({
       light:'#D8FFDB',
       lightblue:'#C7FFED'
     }
-  }
+  },
 })
 
 export default theme

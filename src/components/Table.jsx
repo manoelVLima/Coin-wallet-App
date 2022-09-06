@@ -5,10 +5,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { deleteExpense } from '../redux/actions/actions';
+import { Modal, Typography } from '@mui/material';
+import WalletForm from './WalletForm';
+import EditExpense from './EditExpense';
 
 export default function DataGridDemo() {
   const {wallet: {expenses}} = useSelector((state) => state);
   const dispatch = useDispatch();
+  const [open, setOpen] = React.useState(false);
 
   const columns = [
     { field: 'id', headerName: 'ID', width: 90 },
@@ -17,6 +21,7 @@ export default function DataGridDemo() {
       field: 'Description',
       headerName: 'Description',
       width: 150,
+      color:'red'
     },
     {
       field: 'Currency',
@@ -32,7 +37,7 @@ export default function DataGridDemo() {
       field: 'Tag',
       headerName: 'Tag',
   
-      width: 160,
+      width: 120,
     },
     {
       field: 'Exchange Used',
@@ -42,12 +47,12 @@ export default function DataGridDemo() {
     {
       field: 'Converted Value',
       headerName: 'Converted Value',
-      width: 160,
+      width: 190,
     },
     {
       field: 'Converted Currency',
       headerName: 'Converted Currency',
-      width: 160,
+      width: 180,
     },
     {
       field: 'Actions',
@@ -57,26 +62,47 @@ export default function DataGridDemo() {
         return (
           <Box>
             <DeleteIcon onClick={() => handleDelete(id)} sx={{marginRight:1, color: 'red', cursor:'pointer'}} />
-            <EditIcon sx={{color:'orange', cursor:'pointer'}} />
+            <EditIcon onClick={() => setOpen(true)} sx={{color:'orange', cursor:'pointer'}} />
           </Box>
         )
       }
     },
   ];
   const handleDelete = ({id}) => {
-    console.log(id);
     dispatch(deleteExpense(id));
   }
+  const renderExpenses = expenses.map((expense) => ({
+    ...expense,
+    'Exchange Used': Number(expense.exchangeRates[expense.Currency].ask).toFixed(2),
+    'Converted Value': `R$${Number(expense.exchangeRates[expense.Currency].ask * expense.Budget).toFixed(2)}` ,
+    'Converted Currency': "Real brasileiro",
+
+
+  }))
+
   return (
     <Box sx={{ height: 400, width: '100%',marginTop:4, paddingLeft:2.5}}>
       <DataGrid
         loading={false}
         disableColumnMenu={true}
         sx={{fontSize:'1rem'}}
-        rows={expenses}
+        rows={renderExpenses}
         columns={columns}
         isRowSelectable={()=> false}
       />
+      <Modal
+        open={open}
+        onClose={() => setOpen(false)}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={{margin: {
+          xs: '50vh auto',
+          sm: '40vh auto',
+        }, background: 'white', width: '50vw'}}>
+          <EditExpense />
+        </Box>
+      </Modal>
     </Box>
   );
 }

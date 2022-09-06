@@ -4,14 +4,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { StyledContainer } from '../styles/Wallet';
 import { getCoins, saveExpense } from '../redux/actions/actions';
 
-function WalletForm() {
+function EditExpense() {
   const dispatch = useDispatch();
   const { wallet: { expenses } } = useSelector((state)=> state);
-  const result = expenses.reduce((prev, curr, index) => {
-    const getAsk = curr.exchangeRates[curr.Currency].ask
-    const getAllCost = getAsk * curr.Budget + prev;
-    return getAllCost; // COMO POSSO FATORAR ISSO AQUI ?
-  }, 0);
   const [expense, setExpense] = useState({
     Budget:'',
     Description:'',
@@ -48,10 +43,7 @@ function WalletForm() {
   }
   return ( 
   <Container maxWidth='100vw' sx={{display:'flex', flexDirection:'column', alignItems:'center',justifyContent:'flex-start',}}>
-    <Typography variant="h6" fontWeight='600' fontSize='3.5rem'>
-            R${result.toFixed(2)}
-    </Typography>
-    <Typography marginTop={3} marginBottom={3} variant="h5">Add your expenses</Typography>
+    <Typography marginTop={3} marginBottom={3} variant="h5">Edit</Typography>
     <StyledContainer>
       <TextField autoComplete='off' onChange={handleChange} value={expense.Budget ? expense.Budget: ''} fullWidth type="number" name="Budget" label="Budget" sx={{flex: 1, marginTop:1}} color="success"/>
       <TextField autoComplete='off' onChange={handleChange} value={expense.Description ? expense.Description: ''} fullWidth type="text" name="Description" label="Description" sx={{flex: 1,marginTop:1}} color="success"/>
@@ -106,12 +98,12 @@ function WalletForm() {
           <MenuItem value="Debit Card">Debit Card</MenuItem>
         </Select>
       </FormControl>
-      <Button onClick={handleClick} type="submit" sx={{flex:1, marginLeft:2, marginTop:1.5}} variant="contained" color="success">
-        New Expense
+      <Button onClick={handleClick} type="submit" sx={{flex:1, marginLeft:2, marginTop:1.5}} variant="contained" color="warning">
+        Edit Expense
       </Button>
     </StyledContainer>
   </Container>
   )
 }
 
-export default WalletForm
+export default EditExpense;
